@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #f8f8f8;
+            padding: 2rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        header h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #222222;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .intro {
+            background-color: #f8f8f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        section h2 {
+            font-size: 1.3rem;
+            color: #222222;
+            margin-bottom: 0.8rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+
+        section p {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            color: #555555;
+        }
+
+        .contact-item {
+            margin-bottom: 1.2rem;
+            padding: 1rem;
+            background-color: #f8f8f8;
+            border-left: 4px solid #333333;
+            border-radius: 4px;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #222222;
+        }
+
+        .hours-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .hours-list li {
+            padding: 0.5rem 0;
+            color: #555555;
+        }
+
+        .support-list {
+            list-style: none;
+            margin-left: 0;
+            color: #555555;
+        }
+
+        .support-list li {
+            padding: 0.5rem 0;
+        }
+
+        .support-list li:before {
+            content: "• ";
+            margin-right: 0.5rem;
+            color: #333333;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            padding: 1.5rem;
+            text-align: center;
+            color: #777777;
+            font-size: 0.9rem;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            section h2 {
+                font-size: 1.1rem;
+            }
+
+            .contact-item {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+   <header style="
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+">
+  
+  <!-- Left: Back button -->
+  <div style="flex: 1;">
+    <a href="index.html"
+       style="
+         padding: 0.40rem 0.7rem;
+         background-color: #333;
+         color: #fff;
+         text-decoration: none;
+         border-radius: 4px;
+         font-size: 14px;
+         display: inline-block;
+       ">
+      ← Back
+    </a>
+  </div>
+
+  <!-- Center: Title -->
+  <div style="flex: 1; text-align: center;">
+    <h1 style="margin: 0; font-size: 20px;">Contact Us</h1>
+  </div>
+
+  <!-- Right: Empty spacer -->
+  <div style="flex: 1;"></div>
+
+</header>
+
+
+
+    <main>
+        <div class="intro">
+            <p>If you have any questions regarding our products, payments, or delivery, feel free to contact us using the details below.</p>
+        </div>
+
+        <section>
+            <h2>Support Email</h2>
+            <div class="contact-item">
+                <strong>📧 mistercoderz@gmail.com</strong>
+            </div>
+        </section>
+
+        <section>
+            <h2>Response Time</h2>
+            <p>We aim to respond to all queries within 2–4 hours on business days.</p>
+        </section>
+
+        <section>
+            <h2>Business Hours</h2>
+            <div class="contact-item">
+                <strong>🕒 Monday to Friday</strong>
+                <p>10:00 AM – 6:00 PM (IST)</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Product Support</h2>
+            <p>For issues related to:</p>
+            <ul class="support-list">
+                <li>Payment confirmation</li>
+                <li>Digital product delivery</li>
+                <li>Duplicate payments</li>
+                <li>Refund requests</li>
+            </ul>
+            <p style="margin-top: 1rem;">Please email us with your payment ID and registered email address for faster assistance.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mister Coderz. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creator Reels Resource Pack</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #666;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Steps Section */
+    .steps-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px 0;
+      gap: 20px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .step-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #999;
+      transition: all 0.3s;
+    }
+
+    .step-circle.active {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .step-circle.completed {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .step-line {
+      width: 60px;
+      height: 3px;
+      background-color: #e0e0e0;
+      margin: 0 10px;
+    }
+
+    .step-line.active {
+      background-color: #007bff;
+    }
+
+    .step-label {
+      font-weight: 500;
+      color: #999;
+      display: none;
+    }
+
+    .step-label.active {
+      color: #007bff;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .step-label {
+        display: block;
+      }
+    }
+
+    /* Content Section */
+    .checkout-section {
+      min-height: 80vh;
+      padding: 40px 20px;
+    }
+
+    .checkout-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .checkout-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    .form-section {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-section h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #555;
+      font-size: 14px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+
+    .order-summary {
+      background-color: #f8f9fa;
+      padding: 25px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .order-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .order-item-name {
+      font-weight: 500;
+      color: #2c3e50;
+    }
+
+    .order-item-price {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .order-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px solid #ddd;
+    }
+
+    .order-total .price {
+      color: #28a745;
+      font-size: 24px;
+    }
+
+    .payment-methods {
+      margin: 20px 0;
+    }
+
+    .payment-methods h4 {
+      font-size: 14px;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .payment-method-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .payment-method-item input[type="radio"] {
+      margin-right: 10px;
+      width: auto;
+    }
+
+    .trust-section {
+      background-color: #e7f3ff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      border-left: 4px solid #007bff;
+    }
+
+    .trust-section h5 {
+      color: #007bff;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .trust-section p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: #545b62;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .button-group .btn {
+      flex: 1;
+      margin-top: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Cart Step Specific */
+    .bundle-list {
+      list-style: none;
+    }
+
+    .bundle-item {
+      background-color: #f8f9fa;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .bundle-item:hover {
+      border-color: #007bff;
+      box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+    }
+
+    .bundle-item.selected {
+      border-color: #007bff;
+      background-color: #e7f3ff;
+    }
+
+    .bundle-item input[type="radio"] {
+      margin-right: 10px;
+      width: auto;
+    }
+
+    .bundle-name {
+      font-weight: bold;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+    }
+
+    .bundle-desc {
+      font-size: 13px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .bundle-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #28a745;
+      margin-top: 10px;
+    }
+
+    .finish-message {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .finish-icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    .finish-message h2 {
+      color: #28a745;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .finish-message p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .secure-badge {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #d4edda;
+      color: #155724;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container">
+      <h2>Creator Reels</h2>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#bundle">Bundle</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Steps Indicator -->
+  <div class="container">
+    <div class="steps-container">
+      <div class="step">
+        <div class="step-circle active" id="step1">1</div>
+        <span class="step-label active">Cart</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-circle" id="step2">2</div>
+        <span class="step-label">Information</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-circle" id="step3">3</div>
+        <span class="step-label">Finish</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="checkout-section">
+    <div class="container">
+      <!-- Step 1: Cart -->
+      <div id="step-cart" class="checkout-content">
+        <div>
+          <h3>Reel Bundle Package</h3>
+          <p style="color: #666; margin-bottom: 20px;">Select the bundle you want to purchase.</p>
+          <ul class="bundle-list">
+            <li class="bundle-item selected" onclick="selectBundle(this, 'starter', 29)">
+              <label class="bundle-name">
+                <input type="radio" name="bundle" value="starter" checked
+                  onchange="selectBundle(event.target.closest('.bundle-item'), 'starter', 29)">
+                Starter Bundle
+              </label>
+              <div class="bundle-desc">✓ 5000+ Vertical Videos</div>
+              <div class="bundle-desc">✓ All Formats Included</div>
+              <div class="bundle-desc">✓ Instant Download</div>
+              <div class="bundle-desc">*This is a curated digital resource intended for learning,
+                editing practice, and content inspiration.</div>
+              <div class="bundle-price">₹29</div>
+            </li>
+            <!-- <li class="bundle-item" onclick="selectBundle(this, 'professional', 49)">
+              <label class="bundle-name">
+                <input type="radio" name="bundle" value="professional"
+                  onchange="selectBundle(event.target.closest('.bundle-item'), 'professional', 49)">
+                Professional Bundle
+              </label>
+              <div class="bundle-desc">✓ 10000+ Vertical Videos</div>
+              <div class="bundle-desc">✓ All Formats Included</div>
+              <div class="bundle-desc">✓ Instant Download</div>
+              <div class="bundle-desc">✓ Priority Support</div>
+              <div class="bundle-desc">*This is a curated digital resource intended for learning,
+                editing practice, and content inspiration.</div>
+              <div class="bundle-price">₹29</div>
+            </li> -->
+          </ul>
+        </div>
+
+        <div class="order-summary">
+          <h3 style="margin-bottom: 20px;">Order Summary</h3>
+          <div class="order-item">
+            <span class="order-item-name">Starter Bundle</span>
+            <span class="order-item-price">₹29</span>
+          </div>
+          <div class="order-total">
+            <span>Total:</span>
+            <span class="price">₹29</span>
+          </div>
+          <button class="btn btn-primary" onclick="goToStep(2)">Proceed to Secure Payment
+</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Information -->
+      <div id="step-information" class="checkout-content hidden">
+        <form id="paymentForm">
+          <div class="form-section">
+            <h3>Billing Details</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="firstName" required placeholder="John">
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="lastName" required placeholder="Doe">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" required placeholder="john@example.com">
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" required placeholder="+91 XXXXXXXXXX">
+            </div>
+
+            <h3 style="margin-top: 30px;"></h3>
+
+
+
+
+
+
+          </div>
+        </form>
+
+        <div class="order-summary">
+          <h3 style="margin-bottom: 20px;">Order Summary</h3>
+          <div class="order-item">
+            <span class="order-item-name" id="selectedBundleName">Starter Bundle</span>
+            <span class="order-item-price" id="selectedBundlePrice">₹29</span>
+          </div>
+          <div class="order-total">
+            <span>Total:</span>
+            <span class="price" id="totalPrice">₹29</span>
+          </div>
+
+          <div class="payment-methods">
+            <h4>Payment Method</h4>
+            <div class="payment-method-item">
+              <input type="radio" id="card" name="paymentMethod" value="card" checked>
+              <label for="card" style="margin: 0;">Credit/Debit Card</label>
+            </div>
+            <div class="payment-method-item">
+              <input type="radio" id="netbanking" name="paymentMethod" value="netbanking">
+              <label for="netbanking" style="margin: 0;">Net Banking</label>
+            </div>
+            <div class="payment-method-item">
+              <input type="radio" id="upi" name="paymentMethod" value="upi">
+              <label for="upi" style="margin: 0;">UPI</label>
+            </div>
+          </div>
+
+          <p style="font-size: 13px; color: #666; margin: 15px 0;">
+            Pay securely by Credit or Debit card, Net Banking or UPI through Razorpay.
+          </p>
+
+          <div class="trust-section">
+            <h5>🛡️ Purchase with Confidence</h5>
+            <p>Refunds are provided only in case of accidental duplicate payments
+              or technical delivery failures, as per our Refund Policy.
+            </p>
+            <p style="margin-top: 10px;">Your personal data will be used to process your order, support your experience
+              throughout this website, and for other purposes described in our privacy policy.</p>
+            </div>
+            <p style="font-size:13px;color:#666;">
+            After successful payment, download access will be sent to your registered email.
+            </p>
+
+          <div class="secure-badge">
+            🔒 Secure & Encrypted
+          </div>
+
+          <div class="button-group">
+            <button class="btn btn-secondary" onclick="goToStep(1)">Back</button>
+            <button class="btn btn-primary" onclick="initiatePayment()">
+  Pay Securely ₹29
+</button>
+</div>
+</div>
+
+
+      </div>
+
+      <!-- Step 3: Finish -->
+      <div id="step-finish" class="hidden">
+        <div class="finish-message">
+          <div class="finish-icon">✓</div>
+          <h2>Thank You!</h2>
+          <p>Your order has been placed successfully.</p>
+          <p style="color: #999; font-size: 14px;">We have sent a confirmation email to your address.</p>
+          <p style="margin-top: 20px; font-size: 18px; font-weight: bold; color: #2c3e50;">Redirecting to Razorpay...
+          </p>
+          <div class="secure-badge" style="margin-top: 30px;">
+            🔒 Secure & Encrypted Transaction
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<footer style="background-color: #2c3e50; color: #ecf0f1; padding: 40px 20px; margin-top: 60px;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px;">
+      <!-- Copyright Section -->
+      <div>
+        <h4 style="margin-bottom: 10px;">Creator Reels</h4>
+        <p style="font-size: 14px; color: #bdc3c7;">© 2025 www.mistercoderz.store. All rights reserved.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 style="margin-bottom: 15px;">Quick Links</h4>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 8px;"><a href="#home" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#ecf0f1'">Home</a></li>
+          <li style="margin-bottom: 8px;"><a href="#bundle" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#ecf0f1'">Bundle</a></li>
+          <li style="margin-bottom: 8px;"><a href="contact.html" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#ecf0f1'">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div>
+        <h4 style="margin-bottom: 15px;">Policies</h4>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 8px;"><a href="privacy-policy.html" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#ecf0f1'">Privacy Policy</a></li>
+          <li style="margin-bottom: 8px;"><a href="terms-conditions.html" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#ecf0f1'">Terms & Conditions</a></li>
+          <li style="margin-bottom: 8px;"><a href="refund-policy.html" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#ecf0f1'">Refund Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 style="margin-bottom: 15px;">Contact</h4>
+        <p style="font-size: 14px; color: #bdc3c7; margin-bottom: 8px;"><a href="mailto:support@mistercoderz.store" style="color: #ecf0f1; text-decoration: none;">support@mistercoderz.store</a></p>
+        <p style="font-size: 14px; color: #bdc3c7;"><a href="https://www.mistercoderz.store" style="color: #ecf0f1; text-decoration: none;">www.mistercoderz.store</a></p>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div style="border-top: 1px solid #34495e; padding-top: 20px; text-align: center; color: #95a5a6; font-size: 13px;">
+      <p>&copy; 2024 www.mistercoderz.store. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
+<script>
+  let selectedBundle = {
+    name: 'Starter Bundle',
+    price: 29,
+    amount: 2900
+  };
+
+  function selectBundle(element, bundleName, price) {
+    document.querySelectorAll('.bundle-item')
+      .forEach(item => item.classList.remove('selected'));
+    element.classList.add('selected');
+
+    selectedBundle = {
+      name: 'Starter Bundle',
+      price: price,
+      amount: price * 100
+    };
+  }
+
+  function goToStep(stepNumber) {
+    const steps = ['step-cart', 'step-information'];
+    steps.forEach(id => document.getElementById(id)?.classList.add('hidden'));
+
+    if (stepNumber === 1) {
+      document.getElementById('step-cart').classList.remove('hidden');
+    }
+    if (stepNumber === 2) {
+      document.getElementById('step-information').classList.remove('hidden');
+      updateSummary();
+    }
+
+    updateStepIndicators(stepNumber);
+    window.scrollTo(0, 0);
+  }
+
+  function updateSummary() {
+    document.getElementById('selectedBundleName').innerText = selectedBundle.name;
+    document.getElementById('selectedBundlePrice').innerText = '₹' + selectedBundle.price;
+    document.getElementById('totalPrice').innerText = '₹' + selectedBundle.price;
+  }
+
+  function updateStepIndicators(step) {
+    [1, 2, 3].forEach(i => {
+      const el = document.getElementById('step' + i);
+      el.classList.remove('active', 'completed');
+      if (i === step) el.classList.add('active');
+      if (i < step) el.classList.add('completed');
+    });
+  }
+
+  function initiatePayment() {
+    const form = document.getElementById('paymentForm');
+
+    const firstName = form.firstName.value.trim();
+    const lastName = form.lastName.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+
+    if (!firstName || !lastName || !email || !phone) {
+      alert('Please fill all required fields');
+      return;
+    }
+
+    const options = {
+      key: 'rzp_test_RyYKAKk4hHAA02',
+      amount: selectedBundle.amount,
+      currency: 'INR',
+      name: 'Creator Reels',
+      description: selectedBundle.name,
+      prefill: {
+        name: firstName + ' ' + lastName,
+        email: email,
+        contact: phone
+      },
+      theme: {
+        color: '#007bff'
+      },
+      handler: function (response) {
+  alert(
+    "Payment successful!\n\n" +
+    "Your download link will be sent to your email within a few minutes."
+  );
+}
+
+    };
+
+    new Razorpay(options).open();
+  }
+</script>
+
+
+</body>
+
+</html>
