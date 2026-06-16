@@ -1,0 +1,404 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+nav {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Steps Section */
+.steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #999;
+    transition: all 0.3s;
+}
+
+.step-circle.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.step-circle.completed {
+    background-color: #28a745;
+    color: white;
+}
+
+.step-line {
+    width: 60px;
+    height: 3px;
+    background-color: #e0e0e0;
+    margin: 0 10px;
+}
+
+.step-line.active {
+    background-color: #007bff;
+}
+
+.step-label {
+    font-weight: 500;
+    color: #999;
+    display: none;
+}
+
+.step-label.active {
+    color: #007bff;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .step-label {
+        display: block;
+    }
+}
+
+/* Content Section */
+.checkout-section {
+    min-height: 80vh;
+    padding: 40px 20px;
+}
+
+.checkout-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .checkout-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.form-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.order-summary {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.order-item-name {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.order-item-price {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #ddd;
+}
+
+.order-total .price {
+    color: #28a745;
+    font-size: 24px;
+}
+
+.payment-methods {
+    margin: 20px 0;
+}
+
+.payment-methods h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.payment-method-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.payment-method-item input[type="radio"] {
+    margin-right: 10px;
+    width: auto;
+}
+
+.trust-section {
+    background-color: #e7f3ff;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    border-left: 4px solid #007bff;
+}
+
+.trust-section h5 {
+    color: #007bff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.trust-section p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.button-group .btn {
+    flex: 1;
+    margin-top: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Cart Step Specific */
+.bundle-list {
+    list-style: none;
+}
+
+.bundle-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.bundle-item:hover {
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+.bundle-item.selected {
+    border-color: #007bff;
+    background-color: #e7f3ff;
+}
+
+.bundle-item input[type="radio"] {
+    margin-right: 10px;
+    width: auto;
+}
+
+.bundle-name {
+    font-weight: bold;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+}
+
+.bundle-desc {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.bundle-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 10px;
+}
+
+.finish-message {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.finish-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.finish-message h2 {
+    color: #28a745;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.finish-message p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.secure-badge {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 15px;
+}
